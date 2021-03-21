@@ -9,6 +9,6 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: "cloud-run-deploy"
   waitFor: ["splitwise-sms-build"]
-  args: ['beta', 'run', 'deploy', '${_SERVICE_NAME}', '--port', '80', '--image', 'gcr.io/$PROJECT_ID/splitwise-sms/splitwise-sms:$BRANCH_NAME-$COMMIT_SHA', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+  args: ['beta', 'run', 'deploy', 'splitwise-sms', '--port', '80', '--image', 'gcr.io/$PROJECT_ID/splitwise-sms/splitwise-sms:$BRANCH_NAME-$COMMIT_SHA', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
   env:
   - 'PORT=80'
