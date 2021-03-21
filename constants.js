@@ -1,0 +1,3 @@
+const API_KEY = 'xVyQJ5Tqeerl8mfYa3djmooGku774JLvweNSsTU9';
+const CONSUMER_KEY = 'Qp42OJhghuxyIPhgIxq784RGbQVukYy6BpQ1pA2Y';
+const CONSUMER_SECRET = '9VIWlKySIAcmuaPUJLB77jAO51dMN9lysL9NCWWt';
