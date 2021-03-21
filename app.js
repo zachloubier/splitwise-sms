@@ -3,7 +3,7 @@ const express = require('express');
 const Splitwise = require('./models/splitwise');
 const Group = require('./models/group');
 
-const groupId = 23084090;
+// const groupId = 23084090;
 
 
 // const MessagingResponse = require('twilio').twiml.MessagingResponse;
