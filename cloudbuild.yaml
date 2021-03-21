@@ -1,0 +1,14 @@
+timeout: 1200s
+options:
+  machineType: 'N1_HIGHCPU_8'
+steps:
+- name: 'gcr.io/kaniko-project/executor:v0.13.0'
+  id: "splitwise-sms-build"
+  args: ['--destination', 'gcr.io/$PROJECT_ID/splitwise-sms/splitwise-sms:$BRANCH_NAME-$COMMIT_SHA', '--cache=true']
+  waitFor: ['-'] #start immediately, don't wait for the previous step to finish
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: "cloud-run-deploy"
+  waitFor: ["splitwise-sms-build"]
+  args: ['beta', 'run', 'deploy', '${_SERVICE_NAME}', '--port', '80', '--image', 'gcr.io/$PROJECT_ID/splitwise-sms/splitwise-sms:$BRANCH_NAME-$COMMIT_SHA', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+  env:
+  - 'PORT=80'
