@@ -8,7 +8,7 @@ const Group = require('./models/group');
 
 
 // const MessagingResponse = require('twilio').twiml.MessagingResponse;
-const PORT = 3000;
+const PORT = 80;
 
 const app = express();
 
